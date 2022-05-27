@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Enrolled Units
+{% endblock %}
+{% block content %}
+    <h2>{{ request.user.first_name }} {{ user.last_name }}</h2>
+    <h6 class="card-subtitle mb-2 text-muted">{{ user.email }}</h6>
+    <h4>My Enrolled Unit(s)</h4>
+    {% for units in object_list %}
+        <div class="card" style="width:65rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ units.title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">By: {{ units.owner}}</h6>
+                <p class="card-text">{{ units.overview }}</p>
+              <a class="btn btn-light" href="{% url 'list_topics_view' units.pk %}" role="button">View Topics</a>
+          </div>
+        </div>
+        <br>
+    {% empty%}
+        <h4>You haven't Enrolled Yet!!</h4>
+    {% endfor %}
+
+{% endblock %}

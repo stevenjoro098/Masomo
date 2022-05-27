@@ -1,0 +1,339 @@
+[
+{
+  "model": "courses.programme",
+  "pk": 3,
+  "fields": {
+    "name": "UnderGraduate"
+  }
+},
+{
+  "model": "courses.departments",
+  "pk": 1,
+  "fields": {
+    "programme": 3,
+    "title": "School Of Computer Science",
+    "slug": "school-of-computer-science"
+  }
+},
+{
+  "model": "courses.departments",
+  "pk": 2,
+  "fields": {
+    "programme": 3,
+    "title": "School Of Engineering",
+    "slug": "school-of-engineering"
+  }
+},
+{
+  "model": "courses.departments",
+  "pk": 3,
+  "fields": {
+    "programme": 3,
+    "title": "School of Business",
+    "slug": "school-of-business"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "programme": 3,
+    "department": 1,
+    "courses": "Computer Science",
+    "slug": "computer-science",
+    "overview": "Computer Science is the study of computers and computational systems. Unlike electrical and computer engineers, computer scientists deal mostly with software and software systems; this includes their theory, design, development, and application.\r\n\r\nPrincipal areas of study within Computer Science include artificial intelligence, computer systems and networks, security, database systems, human computer interaction, vision and graphics, numerical analysis, programming languages, software engineering, bioinformatics and theory of computing."
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "programme": 3,
+    "department": 3,
+    "courses": "Acturial Science",
+    "slug": "acturial-science",
+    "overview": "Actuarial Science is the profession concerned with the application of mathematical, statistical, probabilistic, and financial theories to solve real business problems. These problems involve analyzing future financial events, especially where future payments involved have certain or uncertain timing. The traditional areas in which actuaries operate are; life and general insurance, pensions, and investment. Actuaries are also increasingly moving into other fields like health insurance, solvency measurements and asset-liability management, financial risk management."
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 3,
+  "fields": {
+    "programme": 3,
+    "department": 2,
+    "courses": "Electrical Engineering",
+    "slug": "electrical-engineering",
+    "overview": "Electrical power and systems are at the heart of modern society – and so too are electrical and electronics engineers. Engineers specializing in these fields have transformed the 21st century with technologies such as universal electric power systems, television, radio and medical imaging to name just a few examples.\r\n\r\nAmong the most famous electronics and electrical engineers that you may have heard of are Nikola Tesla (pioneer of commercial electricity and electromagnetism),Electrical power and systems are at the heart of modern society – and so too are electrical and electronics engineers"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 4,
+  "fields": {
+    "programme": 3,
+    "department": 2,
+    "courses": "Mechanical Engineering",
+    "slug": "mechanical-engineering",
+    "overview": "rwjio  hduoo wuchuic iwu ciw cywgcia cuiq ugiq dciq ciq cyiq yu dycq"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 5,
+  "fields": {
+    "programme": 3,
+    "department": 2,
+    "courses": "Mechatronics Engineering",
+    "slug": "mechatronics-engineering",
+    "overview": "Combination of Mechanical, Software and Electrical"
+  }
+},
+{
+  "model": "courses.semester",
+  "pk": 2,
+  "fields": {
+    "course": 1,
+    "year": "Y1S1"
+  }
+},
+{
+  "model": "courses.unit",
+  "pk": 11,
+  "fields": {
+    "course": 1,
+    "year": 2,
+    "title": "Object Oriented Programming",
+    "owner": 1,
+    "slug": "object-oriented-programming",
+    "overview": "Learn Classes, Objects, Methods and Functions. Inheritance and whatsoever.",
+    "created": "2021-08-07T09:04:04.156Z",
+    "students": [
+      2,
+      3,
+      47
+    ]
+  }
+},
+{
+  "model": "courses.unit",
+  "pk": 12,
+  "fields": {
+    "course": 1,
+    "year": 2,
+    "title": "Networking",
+    "owner": 2,
+    "slug": "networking",
+    "overview": "All the fuss about communication protocols",
+    "created": "2021-08-07T15:51:40.005Z",
+    "students": [
+      1,
+      2,
+      3,
+      47
+    ]
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 9,
+  "fields": {
+    "unit": 11,
+    "title": "OOP 101",
+    "slug": "oop-101",
+    "created": "2021-08-07T09:07:05.716Z",
+    "description": "Get an introduction in the object oriented programming."
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 10,
+  "fields": {
+    "unit": 11,
+    "title": "OOP 102",
+    "slug": "oop-102",
+    "created": "2021-08-07T09:07:05.948Z",
+    "description": "In depth explanation into the classes and methods"
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 11,
+  "fields": {
+    "unit": 11,
+    "title": "Functions 103",
+    "slug": "functions-103",
+    "created": "2021-08-07T09:11:01.421Z",
+    "description": "functions expalnations."
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 12,
+  "fields": {
+    "unit": 11,
+    "title": "Methods 104",
+    "slug": "methods-104",
+    "created": "2021-08-07T09:11:01.855Z",
+    "description": "Use methods and examples"
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 13,
+  "fields": {
+    "unit": 11,
+    "title": "Python 105",
+    "slug": "python-105",
+    "created": "2021-08-07T09:41:33.615Z",
+    "description": "functions with pythons"
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 14,
+  "fields": {
+    "unit": 11,
+    "title": "106 classes and methods",
+    "slug": "106-classes-and-methods",
+    "created": "2021-08-07T09:43:12.022Z",
+    "description": "classes and methods"
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 15,
+  "fields": {
+    "unit": 11,
+    "title": "Examples of Classes",
+    "slug": "examples-of-classes",
+    "created": "2021-08-07T09:46:20.851Z",
+    "description": "get examples and the rest"
+  }
+},
+{
+  "model": "courses.topics",
+  "pk": 16,
+  "fields": {
+    "unit": 12,
+    "title": "Networking 101",
+    "slug": "networking-101",
+    "created": "2021-08-11T07:23:43.308Z",
+    "description": "Introduction to networking stuff"
+  }
+},
+{
+  "model": "courses.content",
+  "pk": 20,
+  "fields": {
+    "topics": 16,
+    "content_type": 7,
+    "object_id": 20,
+    "order": 0
+  }
+},
+{
+  "model": "courses.content",
+  "pk": 21,
+  "fields": {
+    "topics": 16,
+    "content_type": 7,
+    "object_id": 22,
+    "order": 1
+  }
+},
+{
+  "model": "courses.content",
+  "pk": 22,
+  "fields": {
+    "topics": 16,
+    "content_type": 9,
+    "object_id": 7,
+    "order": 2
+  }
+},
+{
+  "model": "courses.content",
+  "pk": 23,
+  "fields": {
+    "topics": 16,
+    "content_type": 10,
+    "object_id": 1,
+    "order": 3
+  }
+},
+{
+  "model": "courses.content",
+  "pk": 24,
+  "fields": {
+    "topics": 16,
+    "content_type": 8,
+    "object_id": 1,
+    "order": 4
+  }
+},
+{
+  "model": "courses.content",
+  "pk": 25,
+  "fields": {
+    "topics": 16,
+    "content_type": 9,
+    "object_id": 8,
+    "order": 5
+  }
+},
+{
+  "model": "courses.text",
+  "pk": 21,
+  "fields": {
+    "owner": 2,
+    "title": "Networking",
+    "created": "2021-08-11T10:33:43.547Z",
+    "updated": "2021-08-11T10:33:43.547Z",
+    "content": "networking text"
+  }
+},
+{
+  "model": "courses.text",
+  "pk": 22,
+  "fields": {
+    "owner": 2,
+    "title": "Networking text",
+    "created": "2021-08-11T11:28:43.702Z",
+    "updated": "2021-08-16T14:54:27.094Z",
+    "content": "This week’s events have included Olympic sport climbing, for the first time. The NBC livestream of the women’s qualification suffered a bit of an embarrassment, though, as the computer display of the results incorrectly showed some competitors as being guaranteed to qualify when they were not. (Rest of post contains spoilers; don’t click if you don’t want to know about the outcomes of the event.)\r\nThere are two reasons for the large number of Good Articles in this set. First, I had previously been trying to keep my nominations and reviews in balance, but there were too few nominations to review on topics of interest to me, and the inability to find things to review was preventing me from nominating other articles when they were ready. So I started nominating more often. And second, the Wikipedia Good Articles editors are having a drive this month to clean out old nominations, as they tend to do a couple of times per year.Piecewise-circular curves or, if you like, arc-polygons are a very old topic in mathematics. Archimedes and Pappus studied the arbelos, a curved triangle formed from three semicircles, and Hippocrates of Chios found that the lune of Hippocrates, a two-sided figure bounded by a semicircle and a quarter-circle, has the same area as an isosceles right triangle stretched between the same two points. The history of the Reuleaux triangle, bounded by three sixths of circles, stretches back well past Reuleaux to the shapes of of Gothic church windows and its use by Leonardo da Vinci for fortress floor plans and world map projections. But despite their long history and frequent use (for instance in the design of machined parts), there are some basic properties of arc-polygons that seem to have been unexplored so far."
+  }
+},
+{
+  "model": "courses.file",
+  "pk": 1,
+  "fields": {
+    "owner": 2,
+    "title": "Networking pdf",
+    "created": "2021-08-12T18:47:59.485Z",
+    "updated": "2021-08-12T18:47:59.485Z",
+    "file": "files/SCHOOLCHOICES.pdf"
+  }
+},
+{
+  "model": "courses.image",
+  "pk": 8,
+  "fields": {
+    "owner": 2,
+    "title": "Networking image",
+    "created": "2021-08-13T11:45:43.579Z",
+    "updated": "2021-08-13T11:45:43.579Z",
+    "image": "media/images/2013-Ferrari-458-Spider-009-1080w.jpg"
+  }
+},
+{
+  "model": "courses.video",
+  "pk": 1,
+  "fields": {
+    "owner": 2,
+    "title": "Networking Video",
+    "created": "2021-08-12T18:47:07.949Z",
+    "updated": "2021-08-12T18:47:07.949Z",
+    "url": "https://www.youtube.com/watch?v=k4a0eg-M9us&list=RDk4a0eg-M9us&start_radio=1"
+  }
+}
+]

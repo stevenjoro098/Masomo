@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Topics
+{% endblock %}
+
+{% block content %}
+    <h2>Topics</h2>
+    <div class="container">
+            {% for topic in unit_topics %}
+                <div class="row" >
+                    <div class="card" style="width:65rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ topic.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Unit: {{ topic.unit }}</h6>
+                            <p class="card-text">{{ topic.description }}</p>
+                            <a class="btn btn-primary" href="{% url 'topic_details' topic.id %}" role="button">More...</a>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+            {% empty %}
+                <h4>Topics Unavailable</h4>
+            {% endfor %}
+
+    </div>
+
+{% endblock %}

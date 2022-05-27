@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Sign Out
+{% endblock %}
+
+{% block content %}
+<body class="d-flex h-100 text-center text-white">
+<div class="bg-image" style="background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190628/ourmid/pngtree-yellow-cute-graduation-season-display-board-background-image_275895.jpg');height: 100vh">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+  <main class="px-3">
+    <h1>Welcome Back Again!!</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+      <a href="{% url 'login' %}" class="btn btn-lg btn-primary">Login</a>
+    </p>
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title%}
+    {{ object.title }} Topics
+{% endblock %}
+{% block content %}
+    <h4></h4>
+    <h2>{{ object.title }}</h2>
+    {% for item in topic %}
+        {% with content=item.item %}
+            <h4>{{ content.title }}</h4>
+            <p>{{ content.render }}</p>
+        {% endwith %}
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <p><h1>{{ object.title }}</h1></p>
+                <h4><p class="card-subtitle mb-2 text-muted">{{ object.course}}</p></h4>
+            </div>
+            <div class="col-md-4">
+                <br>
+                {% if request.user.is_authenticated %}
+
+                        <form action="{% url 'student_enroll_unit' %}" method="post">
+                            {{ enroll_form }}
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-success" value="Enroll now">
+                         </form>
+
+                {% else %}
+                    <a href="{% url 'student_registration' %}" class="btn btn-danger">
+                        Register to Enroll
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        {{ object.overview|linebreaks }}
+    </div>
+{% endblock %}

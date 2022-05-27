@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    My Units
+{% endblock %}
+{% block sidebar %}
+    <li>
+        <a class="btn btn-warning" href="{% url 'create_unit' %}" role="submit">Create New Unit</a>
+    </li>
+    <li>
+        <a href="#!">My Units</a>
+    </li>
+
+{% endblock %}
+{% block content %}
+    <h2>Units created by: {{ user.first_name }} {{ user.last_name }}</h2>
+    {% for unit in units_list %}
+        <div class="card" style="width:35rem;">
+          <div class="card-body">
+            <h3 class="card-title">{{ unit.title }}</h3>
+            <h5 class="card-subtitle mb-2 text-muted">By. {{unit.owner}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Enrolled Students: {{ unit.students.count }}</h6>
+            <p class="card-text">{{ unit.overview | truncatewords:35 }}</p>
+            <a href="{% url 'update_units' unit.pk %}" class="btn btn-light">Edit</a>
+            <a href="{% url 'list_topics' unit.pk %}" class="btn btn-light"> ViewTopics</a>
+            <a href="{% url 'topics_update' unit.pk %}" class="btn btn-light">Add/Edit Topics</a>
+            <a href="{% url 'delete_unit_view' unit.pk %}" class="btn btn-light">Delete Unit</a>
+          </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.courses }}
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <p><h1 class="card-title">{{ object.courses }}</h1></p>
+            <p class="card-subtitle mb-2 text-muted"><b>{{ object.department }}</b></p>
+            <div class="mb-1 text-muted">Units: {{ object.course.count }}</div>
+            <p>{{ object.overview }}</p>
+            <a class="btn btn-secondary" href="{% url 'list_semester_units' object.id %}" role="button">Checkout Units</a>
+        </div>
+
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-3 mb-3 bg-light rounded">
+            <h4 class="font-italic">About</h4>
+            <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+        </aside>
+        </div>
+    </div>
+{% endblock %}

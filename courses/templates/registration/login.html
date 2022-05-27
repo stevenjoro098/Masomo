@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Sign In
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://image.shutterstock.com/image-vector/business-office-concept-businessmanvector-illustration-260nw-621881156.jpg" class="img-fluid rounded-start" alt="#">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1 class="card-title">Sign-In</h1>
+
+                    {% if form.errors %}
+                        <p>Your Username and Password didn't match. Please try Again!!!</p>
+                    {% endif %}
+                    <div class="login-form">
+                        <form action="{% url 'login' %}" method="post">
+                            {{ form|crispy}}
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{next}}" />
+                            <div class="checkbox mb-3">
+                                <label>
+                                  <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                              </div>
+                            <p><input class="btn btn-lg btn-primary btn-block"  type="submit" value="Log-in"></p>
+                        </form>
+                        <div class="row">
+                            <div class="container">
+                                <p> Or </p>
+                                <p> <a href="{% url 'student_registration' %} class="align-center">Register</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

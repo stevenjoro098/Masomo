@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load user_group %}
+{% load static %}
+{% block title %}
+    E-Learning
+{% endblock %}
+{% block sidebar %}
+    {% if user.is_authenticated %}
+        {% if request.user|user_info:"Instructors" %}
+            <li>
+                <a href="{% url 'units_list' %}">My DashBoard</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'view_enrolled_units'%}">Enrolled Units</a>
+            </li>
+            <li>
+                <a href="#">Grades</a>
+            </li>
+            <li>
+                <a href="#!">Finance</a>
+            </li>
+            <li>
+                <a href="{% url 'profile' %}">My Profile</a>
+            </li>
+        {% endif %}
+
+    {% else %}
+        <li>
+            <a href="#">Gallery</a>
+        </li>
+        <li>
+            <a href="#">Explore</a>
+        </li>
+        <li>
+            <a href="#">About</a>
+        </li>
+
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+      <h1 class="display-3">Elearning Courses</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+    <div class="container">
+        <div class="row">
+        {% for courses in courses_list %}
+                <div class="col-md-4">
+                    <h2>{{ courses.courses }}</h2>
+                    <h5 class="card-subtitle mb-2 text-muted">{{ courses.department}}</h5>
+                    <p>{{ courses.overview | truncatewords:25}}</p>
+                    <p><a class="btn btn-primary" href="{% url 'course_details' courses.slug %}" role="button">View</a></p>
+
+                </div>
+
+            <br>
+        {% empty %}
+            <h5>No Available Courses!!</h5>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
