@@ -46,9 +46,11 @@
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
     <br>
+
+
     <div class="row align-items-md-stretch">
         {% for course in courses_list %}
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="h-100 p-5 bg-light border rounded-3">
               <h2>{{ course.courses }}</h2>
                 <h5 class="card-subtitle mb-2 text-muted">{{ course.department}}</h5>
