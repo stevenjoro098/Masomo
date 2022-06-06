@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-md-8">
             <p><h1 class="card-title">{{ object.courses }}</h1></p>
-            <p class="card-subtitle mb-2 text-muted"><b>{{ object.department }}</b></p>
-            <div class="mb-1 text-muted">Units: {{ object.course.count }}</div>
+            <p class="card-subtitle mb-1 text-muted"><b>Department: {{ object.department }}</b></p>
+            <div class="mb-1 text-muted"><h4>Units: {{ object.course.count }}</h4></div>
             <p>{{ object.overview }}</p>
             <a class="btn btn-secondary" href="{% url 'list_semester_units' object.id %}" role="button">Checkout Units</a>
         </div>

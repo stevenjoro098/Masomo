@@ -5,30 +5,30 @@
 {% endblock %}
 
 {% block sidebar %}
-    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Year 1 </a>
-    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">Year 2</a>
-    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Year 3</a>
-    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">Year 4</a>
+
 
 {% endblock %}
 {% block  content %}
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-          <h1 class="display-4">{{ course }}</h1>
-          <p class="lead my-3">{{ course.overview | truncatewords:10}}</p>
-          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-        </div>
+    <div class="p-5 text-white bg-dark rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">{{ course }}</h1>
+        <p class="col-md-8 fs-4">{{ course.overview| truncatewords:20 }}</p>
+        <button class="btn btn-primary btn-lg" type="button" href="{% url 'course_detail' course.slug %}">Continue Reading...</button>
       </div>
+    </div>
     <br>
     <div class="container">
-        <h3>Available {{ course }} Units</h3>
+        <h3 class="">Available {{ course }} Units</h3>
+        <br>
         <div class="row">
             {% for items in units_list %}
                 <div class="col-md-4">
-                    <h4 class="card-title"><u>{{ items.title }}</u></h4>
-                    <h6 class="card-subtitle mb-2 text-muted">By: {{ items.owner.first_name}}  {{ items.owner.last_name }}</h6>
-                        <p class="card-text">{{ items.overview | truncatewords:18}}</p>
-                        <a class="btn btn-light" href="{% url 'unit_detail_view' items.slug %}" role="button">View Details</a>
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                        <h4 class="card-title">{{ items.title }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">By: {{ items.owner.first_name}}  {{ items.owner.last_name }}</h6>
+                            <p class="card-text">{{ items.overview | truncatewords:18}}</p>
+                            <a href="{% url 'unit_detail_view' items.slug %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Check</a>
+                    </div>
                 </div>
             {% empty %}
                 <h3>Units Unavailable</h3>
