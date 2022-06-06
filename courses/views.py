@@ -66,7 +66,7 @@ class UnitCreateView(LoginRequiredMixin, CreateView):  # user must Login in orde
 
 class UnitsListView(LoginRequiredMixin, ListView):
     """List all Units created by user"""
-    template_name = 'courses/manage/units/list.html'  # path to list template
+    template_name = 'courses/manage/units/course_list.html'  # path to list template
     model = Unit  # Define model
     context_object_name = 'units_list'  # override the default object name rendered in the template.
 
@@ -266,7 +266,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
 
 class CoursesListView(ListView):
     model = Course
-    template_name = 'courses/list/list.html'
+    template_name = 'courses/list/course_list.html'
     context_object_name = 'courses_list'
 
 
