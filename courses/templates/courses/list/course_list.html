@@ -45,21 +45,18 @@
       <p>Get exposure to new ideas and concepts that we can use to appreciate and improve the world around us and the world within us. </p>
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
-    <div class="container">
-        <div class="row">
-        {% for courses in courses_list %}
-                <div class="col-md-4">
-                    <h2>{{ courses.courses }}</h2>
-                    <h5 class="card-subtitle mb-2 text-muted">{{ courses.department}}</h5>
-                    <p>{{ courses.overview | truncatewords:25}}</p>
-                    <p><a class="btn btn-primary" href="{% url 'course_details' courses.slug %}" role="button">View</a></p>
-
-                </div>
-
-            <br>
+    <div class="row align-items-md-stretch">
+      {% for course in course_list %}
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>{{ course.courses }}</h2>
+                <h5 class="card-subtitle mb-2 text-muted">{{ courses.department}}</h5>
+                <p>{{ courses.overview | truncatewords:25}}</p>
+              <button class="btn btn-outline-secondary"  href="{% url 'course_details' courses.slug %}" type="button">View</button>
+            </div>
+          </div>
         {% empty %}
-            <h5>No Available Courses!!</h5>
+            <h3>Courses Unavailable</h3>
         {% endfor %}
-        </div>
     </div>
 {% endblock %}
