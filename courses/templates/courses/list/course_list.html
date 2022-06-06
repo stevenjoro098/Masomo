@@ -45,14 +45,15 @@
       <p>Get exposure to new ideas and concepts that we can use to appreciate and improve the world around us and the world within us. </p>
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
+    <br>
     <div class="row align-items-md-stretch">
-      {% for course in courses_list %}
+        {% for course in courses_list %}
           <div class="col-md-6">
             <div class="h-100 p-5 bg-light border rounded-3">
               <h2>{{ course.courses }}</h2>
-                <h5 class="card-subtitle mb-2 text-muted">{{ courses.department}}</h5>
-                <p>{{ courses.overview | truncatewords:25}}</p>
-              <button class="btn btn-outline-secondary"  href="{% url 'course_details' courses.slug %}" type="button">View</button>
+                <h5 class="card-subtitle mb-2 text-muted">{{ course.department}}</h5>
+                <p>{{ course.overview | truncatewords:25}}</p>
+                <a href="{% url 'course_details' course.slug %}">View</a>
             </div>
           </div>
         {% empty %}
