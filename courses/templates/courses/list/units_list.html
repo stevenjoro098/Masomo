@@ -13,7 +13,7 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">{{ course }}</h1>
         <p class="col-md-8 fs-4">{{ course.overview| truncatewords:20 }}</p>
-        <button class="btn btn-primary btn-lg" type="button" href="{% url 'course_detail' course.slug %}">Continue Reading...</button>
+          <a class="btn btn-light" href="{% url 'course_details' course.slug %}" role="button">Continue Reading...</a>
       </div>
     </div>
     <br>
