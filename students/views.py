@@ -3,9 +3,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic.edit import CreateView, FormView, UpdateView
 from .forms import UnitEnrollForm, RegistrationForm
 from courses.models import Unit
+from .models import Profile
 
 # Create your views here.
 
@@ -68,4 +69,17 @@ class StudentUnitsListView(ListView):
 
 def student_profile(request):
     """User to view Profile"""
-    return render(request, 'students/student/profile.html')
+
+    user = request.user
+    units = user.course_joined.all()
+    return render(request, 'students/student/profile.html', {'units': units})
+
+
+class EditProfile(CreateView):
+    model = Profile
+    fields = ['course', 'telephone', 'image']
+    template_name = 'students/student/edit_profile.html'
+
+    def form_valid(self, request, form):
+        form.user = request.user
+        return super().form_valid(form)
