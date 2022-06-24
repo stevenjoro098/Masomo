@@ -162,7 +162,7 @@
                                     {% endif %}
                                 </div>
                                 <h5 class="f-w-600">{{ user.first_name}} {{user.last_name }}</h5>
-                                <p class="text-center text-white">{{ user.profile.course}}</p>
+                                <p class="text-center text-white">{{ user.profile.bio | truncate [:20}}</p>
 
                             </div>
                         </div>
