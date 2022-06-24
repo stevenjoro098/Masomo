@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.urls import reverse_lazy
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', 'https://masomoapp.herokuapp.com/', '127.0.0.1:8000', '0.0.0.0']
 
 # Application definition
-
+env = environ.Env()
+environ.Env.read_env()
 INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'rest_framework',
@@ -80,6 +82,13 @@ REST_FRAMEWORK = {
     ]
 }
 WSGI_APPLICATION = 'ELearning.wsgi.application'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' #env('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_USE_TSL = True
+EMAIL_HOST_USER = '3rdeyesopen@gmail.com' #env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = 'vuinpafhvzmamtkt'#env('EMAIL_HOST_PASSWORD')
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

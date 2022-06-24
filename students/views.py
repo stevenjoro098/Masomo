@@ -1,4 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -6,7 +8,8 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, FormView, UpdateView
 from .forms import UnitEnrollForm, RegistrationForm
 from courses.models import Unit
-from .models import Profile
+from .tasks import register_sucess
+from .forms import ProfileUpdate
 
 # Create your views here.
 
@@ -26,10 +29,11 @@ from .models import Profile
 
 def register(request):
     """function based registration"""
-    if request.method == 'POST':  # if posted data
-        form = RegistrationForm(request.POST)  # receive forms posted data
-        if form.is_valid():  # validate form posted data.
-            form.save()  # save user info to db.
+    if request.method == 'POST':  # if post method
+        register_form = RegistrationForm(request.POST)  # receive forms posted data
+        if register_form.is_valid():  # validate form posted data.
+            register_form.save()
+            # register_sucess.delay('test') # Asynchronous task with celery. PEnding due to changes in Google security protocols.
             return HttpResponseRedirect(reverse_lazy('login'))  # render login form for new user.
     else:
         form = RegistrationForm()  # render empty registration form.
@@ -75,11 +79,15 @@ def student_profile(request):
     return render(request, 'students/student/profile.html', {'units': units})
 
 
-class EditProfile(CreateView):
-    model = Profile
-    fields = ['course', 'telephone', 'image']
-    template_name = 'students/student/edit_profile.html'
-
-    def form_valid(self, request, form):
-        form.user = request.user
-        return super().form_valid(form)
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        user_form = ProfileUpdate(instance=request.user.profile,
+                                  data=request.POST,
+                                  files=request.FILES)
+        if user_form.is_valid():
+            user_form.save()
+            return HttpResponseRedirect(reverse_lazy('profile'))
+    else:
+        user_form = ProfileUpdate(instance=request.user.profile)
+    return render(request, 'students/student/edit_profile.html', {'user_form': user_form})

@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block content %}
-    <form class="mx-1 mx-md-4" method="post">
+    <form class="mx-1 mx-md-4" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form | crispy }}
+      {{ user_form | crispy }}
         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-            <button class="btn btn-lg btn-success btn-block"  type="submit">Update</button>
+            <button class="btn btn-lg btn-success btn-block"  type="submit">Update Profile</button>
         </div>
     </form>
 {% endblock %}

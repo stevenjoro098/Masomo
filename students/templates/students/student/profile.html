@@ -145,8 +145,6 @@
             transition: all 0.3s ease-in-out;
             }
 
-
-
     </style>
     <div class="page-content page-container" id="page-content">
     <div class="padding">
@@ -157,16 +155,20 @@
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
                                 <div class="m-b-25">
-                                    <img src="{{ user.user_profile.image.url }}" class="img-radius" alt="User-Profile-Image" width="150" height="150">
+                                    {% if user.profile.image %}
+                                        <img src="{{user.profile.image.url}}" class="rounded-circle account-img" alt="default.png" width="150" height="150">
+                                    {% else %}
+                                        <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" class="rounded-circle account-img" alt="User-Profile-Image" width="150" height="150">
+                                    {% endif %}
                                 </div>
                                 <h5 class="f-w-600">{{ user.first_name}} {{user.last_name }}</h5>
-                                <p class="text-center text-white">{{ user.user_profile.course}}</p>
+                                <p class="text-center text-white">{{ user.profile.course}}</p>
 
                             </div>
                         </div>
                         <div class="col-sm-8">
                             <div class="card-block">
-                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Edit Profile</h6>
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600"> <a href="{% url 'edit_profile' %}" >Edit Profile</a></h6>
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -174,8 +176,8 @@
                                         <h6 class="text-muted f-w-400">{{ user.email }}</h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Phone</p>
-                                        <h6 class="text-muted f-w-400">{{ user.user_profile.telephone }}</h6>
+                                        <p class="m-b-10 f-w-600">Phone No.</p>
+                                        <h6 class="text-muted f-w-400">{{ user.profile.telephone }}</h6>
                                     </div>
                                 </div>
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>

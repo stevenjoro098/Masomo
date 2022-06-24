@@ -103,7 +103,8 @@ class Content(models.Model):
         'file'
     )})
     # content_type is the reference to the content_type or the table used for the relation.
-    object_id = models.PositiveIntegerField()  # The object_id is used to store the id of the row, or kind of like a foreign key (not a foreign key though!)
+    object_id = models.PositiveIntegerField()  # The object_id is used to store the id of the row, or kind of like a
+    # foreign key (not a foreign key though!)
     item = GenericForeignKey('content_type', 'object_id')
     order = OrderField(blank=True)  # the order is calculated with respect to the module field.
 

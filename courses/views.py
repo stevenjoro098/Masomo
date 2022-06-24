@@ -33,7 +33,7 @@ def user_login(request):
                         return HttpResponseRedirect(reverse_lazy('units_list'))  # Redirect Instructor to Units he
                         # Created
                     else:
-                        # Else redirect the users to the list of courses.
+                        # Else redirect the users to the list of courses page.
                         return HttpResponseRedirect(reverse_lazy('list_courses'))
                 else:
                     # Return an 'invalid login' error message.
@@ -57,10 +57,10 @@ class UnitCreateView(LoginRequiredMixin, CreateView):  # user must Login in orde
     template_name = 'courses/manage/units/form.html'  # the path to form creation template.
     model = Unit  # Define the model
     fields = ['course', 'title', 'year', 'overview']  # Defined fields for the Unit create form.
-    success_url = reverse_lazy('units_list')  # When successful redirect to units_list created by lecturer.
+    success_url = reverse_lazy('units_list')  # When successful redirect to units_list created by instructor.
 
     def form_valid(self, form):  # Override form validation method.
-        form.instance.owner = self.request.user  # set owner field to user
+        form.instance.owner = self.request.user  # set owner field to logged user.
         return super().form_valid(form)
 
 
